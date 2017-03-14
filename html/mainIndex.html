@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>百货商场管理系统首页</title>
+
+    <script src="../libs/jquery-1.10.2.js"></script>
+    <script src="../libs/bootstrap.min.js"></script>
+    <script src="../libs/angular.min.js"></script>
+    <script src="../js/mainIndex.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+</head>
+<body>
+<div class="mainIndex_top">
+    百货商场管理系统
+</div>
+<div id="wrap">
+    <!-- 左侧菜单栏目块 -->
+    <div class="leftMeun" id="leftMeun">
+        <div id="personInfor">
+            <p id="userName">雷倩倩</p>
+
+            <p><span>1215713338@qq.com</span></p>
+
+            <p>
+                <a href="../login.html">退出登录</a>
+            </p>
+        </div>
+        <div class="meun-title">商品管理模块</div>
+        <div class="meun-item meun-item-active" href="#SPmess" aria-controls="SPmess" role="tab" data-toggle="tab">
+            <img src="../image/icon_source.png">商品信息管理
+        </div>
+        <div class="meun-item" href="#SPJH" aria-controls="SPJH" role="tab" data-toggle="tab">
+            <img src="../image/icon_char_grey.png">商品进货管理
+        </div>
+        <div class="meun-item" href="#SPsell" aria-controls="SPsell" role="tab" data-toggle="tab">
+            <img src="../image/icon_user_grey.png">商品销售管理
+        </div>
+        <div class="meun-title">其他信息管理</div>
+        <div class="meun-item" href="#staff" aria-controls="staff" role="tab" data-toggle="tab">
+            <img src="../image/icon_chara_grey.png">人事信息管理
+        </div>
+        <div class="meun-item" href="#user" aria-controls="user" role="tab" data-toggle="tab">
+            <img src="../image/icon_chara_grey.png">客户信息管理
+        </div>
+        <div class="meun-item" href="#Data" aria-controls="Data" role="tab" data-toggle="tab">
+            <img src="../image/icon_card_grey.png">数据报表管理
+        </div>
+        <div class="meun-item" href="#system" aria-controls="system" role="tab" data-toggle="tab">
+            <img src="../image/icon_rule_grey.png">系统配置管理
+        </div>
+    </div>
+    <!-- 右侧具体内容栏目 -->
+    <div id="rightContent">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- 商品信息管理模块 -->
+            <div role="tabpanel" class="tab-pane active" id="SPmess">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD1" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>全部商品信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查看全部商品信息，也可针对某个具体商品进行查询</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">
+                                    <a href="Allgoods.html">查看</a>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD1" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>添加商品信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对新购进的商品进行信息的添加</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">
+                                    <a href="#">添加</a>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topCD1" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>修改商品信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查询出需要修改的商品的信息，并对其进行修改</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">
+                                    <a href="#">修改</a>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topDD1" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>删除商品信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查询出需要删除的商品的信息，并对其进行删除操作</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">
+                                    <a href="#">查询</a>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 商品进货管理模块 -->
+            <div role="tabpanel" class="tab-pane" id="SPJH">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD2" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>商品入库</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查看全部商品入库情况，也可针对某个具体商品进行查询是否入库</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD2" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>入库审核</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对要入库的商品进行入库信息审核</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topCD2" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>库存信息查询</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">可对进货、退货以及库存进行查询</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topDD2" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>库存盘点</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对库存中所有商品进行盘点</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--商品销售管理模块-->
+            <div role="tabpanel" class="tab-pane" id="SPsell">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD3" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>销售价格</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查看商品的销售价格</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD3" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>销售开单</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对销售的商品打印单据</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topCD3" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>销售查询</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查看所有商品的销售情况</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topDD3" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>打印收银条</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对销售的商品打印收银条据</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--人事信息管理模块-->
+            <div role="tabpanel" class="tab-pane" id="staff">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD4" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>全部职工信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查看全部职工信息，也可针对某个具体职工进行查询</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">
+                                    <a href="Allstaff.html">查看</a></button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD4" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>添加职工信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对新入职的职工进行信息的添加</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">添加</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topDD4" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>修改职工信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查询出需要修改的职工的信息，并对其进行修改</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">修改</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topED4" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>删除职工信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查询出需要删除的职工的信息，并对其进行删除操作</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查询</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--客户信息管理模块-->
+            <div role="tabpanel" class="tab-pane" id="user">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD5" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>全部客户信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查看全部客户信息，也可针对某个具体客户进行查询</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD5" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>添加客户信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对新客户进行信息的添加</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">添加</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topCD5" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>修改客户信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查询出需要修改的客户的信息，并对其进行修改</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">修改</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topDD5" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>删除客户信息</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">查询出需要删除的客户的信息，并对其进行删除操作</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查询</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--数据报表管理模块-->
+            <div role="tabpanel" class="tab-pane" id="Data">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD6" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>库存报表</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对商品库存情况进行统计报表</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD6" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>销售报表</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对商品销售情况进行统计报表</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topCD6" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>进货报表</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对商品进货情况进行统计报表</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topDD6" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>退货报表</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对商品退货情况进行统计报表</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--系统配置管理模块-->
+            <div role="tabpanel" class="tab-pane" id="system">
+                <div class="row tableHeader">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
+                        功能编号
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        功能名称
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        功能简介
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
+                            <div id="topAD7" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>权限管理</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对系统的管理进行权限管理信息</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">2</div>
+                            <div id="topBD7" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>密码管理</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对系统所有管理员、客户以及职工登录密码进行管理</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">3</div>
+                            <div id="topCD7" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>账套备份</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对系统s所有的账目进行备份</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">4</div>
+                            <div id="topDD7" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>账套还原</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">删除了的账套数据进行还原处理</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">5</div>
+                            <div id="topED7" class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>数据清空</span></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">对不需要的数据进行清空处理</div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSource">查看</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

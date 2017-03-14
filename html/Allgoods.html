@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全部职工信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/staff.css"/>
+
+    <link rel="stylesheet" href="../css/search.css"/>
+    <link rel="stylesheet" href="../css/searchMeme.css"/>
+
+    <script src="../libs/jquery-1.10.2.js"></script>
+    <script src="../js/jquery.searchMeme.js"></script>
+    <script src="../js/login.js"></script>
+
+    <script src="../libs/bootstrap.min.js"></script>
+    <script src="../libs/angular.min.js"></script>
+
+    <script src="../js/mainIndex.js"></script>
+
+    <script>
+        var Allstaff = angular.module("Allstaff", []);
+        Allstaff.controller("StaffCtrl", ["$scope", "$http", function ($scope, $http) {
+            $http({
+                url: '../php/allStaff.php',
+                method: "get",
+                params: {}
+            }).success(function (data) {
+                $scope.Staff = data;
+            })
+        }]);
+    </script>
+    <script>
+        $(document).ready(function () {
+            var searchOrange = $('#search-orange').searchMeme({
+                onSearch: function (searchText) {
+                    setTimeout(function () {
+                        searchOrange.searchMeme({searchComplete: true});
+                        $('#search-results').html("You searched for " + searchOrange.val() + "");
+                        $('.panel').animate({'height': 200}, 500);
+                    }, 3000);
+                }, buttonPlacement: 'left', button: 'orange'
+            });
+        })
+</script>
+</head>
+<body ng-app="Allstaff">
+<div class="Shop_layout">
+    <div class="staff_top">
+        <div class="staff_top_title">百货商场管理系统</div>
+    </div>
+    <div class="leftMeun" id="leftMeun">
+        <div id="personInfor">
+            <p id="userName">雷倩倩</p>
+
+            <p><span>1215713338@qq.com</span></p>
+
+            <p>
+                <a href="../html/mainIndex.html">返回首页</a>
+            </p>
+        </div>
+        <div class="meun-title"><h3>商品信息管理</h3></div>
+        <div class="meun-item meun-item-active" href="#SPmess" aria-controls="SPmess" role="tab" data-toggle="tab">
+            查看全部职工信息
+        </div>
+        <div class="meun-item" href="#SPJH" aria-controls="SPJH" role="tab" data-toggle="tab">
+            添加商品信息
+        </div>
+        <div class="meun-item" href="#SPsell" aria-controls="SPsell" role="tab" data-toggle="tab">
+            修改商品信息
+        </div>
+        <div class="meun-item" href="#staff" aria-controls="staff" role="tab" data-toggle="tab">
+            删除商品信息
+        </div>
+    </div>
+    <div id="rightContent">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="SPmess">
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="staff_table">
+                            <table id="content" ng-controller="StaffCtrl">
+                                <caption>全部商品信息表</caption>
+                                <thead>
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>职位</th>
+                                    <th>性别</th>
+                                    <th>职工号</th>
+                                    <th>出生日期</th>
+                                    <th>年龄</th>
+                                    <th>地址</th>
+                                    <th>手机号</th>
+                                    <th>登录ID</th>
+                                    <th>登录密码</th>
+                                    <th>邮箱</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="staffmess in Staff">
+                                    <td>{{staffmess.name}}</td>
+                                    <td>{{staffmess.position}}</td>
+                                    <td>{{staffmess.gender}}</td>
+                                    <td>{{staffmess.num}}</td>
+                                    <td>{{staffmess.birthday}}</td>
+                                    <td>{{staffmess.age}}</td>
+                                    <td>{{staffmess.address}}</td>
+                                    <td>{{staffmess.phone}}</td>
+                                    <td>{{staffmess.loginID}}</td>
+                                    <td>{{staffmess.password}}</td>
+                                    <td>{{staffmess.email}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="SPJH">
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="staff_table">
+                            <span class="staff_table_span">添加职工信息</span>
+                            <div id="AddStaff">
+                                <div class="user-login">
+                                    <div class="users">
+                                        <form method="post">
+                                            <div class="form-login">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_user">姓名</label>
+                                                        <input type="text" name="user" value="" class="form-control" id="staff_user">
+                                                        <span class='info user_put'>请输入6个字符的用户名，可由汉字数字字母下划线组成。</span>
+                                                        <span class='info_error user_error'>请输入正确用户名!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_pass">密码</label>
+                                                        <input type="password" name="pass" value="" class="form-control" id="staff_pass">
+                                                        <span class ='info pass_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error pass_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_position">职位</label>
+                                                        <input type="text" name="position" value="" class="form-control" id="staff_position">
+                                                        <span class ='info position_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error position_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_gender">性别</label>
+                                                        <input type="text" name="gender" value="" class="form-control" id="staff_gender">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_num">职工号</label>
+                                                        <input type="text" name="pass" value="" class="form-control" id="staff_num">
+                                                        <span class ='info num_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error num_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_birthday">出生日期</label>
+                                                        <input type="text" name="birthday" value="" class="form-control" id="staff_birthday">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_age">年龄</label>
+                                                        <input type="text" name="age" value="" class="form-control" id="staff_age">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_address">地址</label>
+                                                        <input type="text" name="address" value="" class="form-control" id="staff_address">
+                                                        <span class ='info address_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error address_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_phone">手机号</label>
+                                                        <input type="text" name="phone" value="" class="form-control" id="staff_phone">
+                                                        <span class ='info phone_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error phone_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_loginID">登录ID</label>
+                                                        <input type="text" name="pass" value="" class="form-control" id="staff_loginID">
+                                                        <span class ='info loginID_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error loginID_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="Staff_LoginPass">登录密码</label>
+                                                        <input type="password" name="LoginPass" value="" class="form-control" id="Staff_LoginPass">
+                                                        <span class ='info LoginPass_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error pass_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label class="input-group-addon" for="staff_email">邮箱</label>
+                                                        <input type="text" name="email" value="" class="form-control" id="staff_email">
+                                                        <span class ='info email_put'>请输入6-18位密码，由数字字母下划线组成。</span>
+                                                        <span class='info_error email_error'>请输入正确密码!</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <a href="#" class="form-control submit">注册</a>
+                                                        <a href="#" class="form-control submit">取消</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="SPsell">
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="staff_table">
+                            <div class="wrapper">
+                                <div class="demo">
+                                    <input type="text" id="search-orange" />
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel" id="search-results"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="staff">
+                <div class="data-div">
+                    <div class="tablebody">
+                        <div class="staff_table">3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
